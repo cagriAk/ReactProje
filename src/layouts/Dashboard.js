@@ -3,6 +3,9 @@ import { Button, Divider } from 'semantic-ui-react'
 import ProductList from '../pages/ProductList'
 import Categories from './Categories'
 import { Grid} from 'semantic-ui-react'
+import { Route,Routes } from 'react-router-dom'
+import ProductDetail from '../pages/ProductDetail'
+import CartDetail from '../pages/CartDetail'
 
 
 export default function Dashboard() {
@@ -16,7 +19,12 @@ export default function Dashboard() {
                   </Grid.Column>
               
                   <Grid.Column width={12}>
-                        <ProductList/>
+                  <Routes>
+                        <Route exact path="/" element={<ProductList />}/>
+                        <Route path="/products" element={<ProductList />}/>
+                        <Route path="/products/:id" element={<ProductDetail />}/>
+                        <Route path="/cart" element={<CartDetail />}/>
+                  </Routes>
                   </Grid.Column>
             </Grid.Row>
           </Grid>
